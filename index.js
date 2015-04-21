@@ -12,10 +12,6 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use('/api', require('./routes/api')) // Our todo API
 app.use('/', require('./routes/pages')) // Example files
 
-app.get('/', function(req, res) {
-  res.send("Oh hai")
-})
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

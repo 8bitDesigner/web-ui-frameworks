@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Todos</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body class="javascript">
+
+    <div id="todoapp">
+
+      <header>
+        <h1>Todos</h1>
+      </header>
+
+      <section id="main">
+        <ul class="todos" id="todos">
+          <li class="todo-item"><a href="/javascript">in raw Javascript</a></li>
+          <li class="todo-item"><a href="/jquery">with jQuery!</a></li>
+          <li class="todo-item"><a href="/jquery-with-syncing">in jQuery with syncing</a></li>
+          <li class="todo-item"><a href="/backbone">in Backbone (OMG Models!)</a></li>
+          <li class="todo-item"><a href="/react">in React</a></li>
+        </ul>
+      </section>
+
+    </div>
   </body>
 </html>

@@ -11,6 +11,11 @@ function render(opts) {
   }
 }
 
+
+router.get('/', function(req, res) {
+  res.render('index')
+})
+
 router.get('/javascript', render({
   title: "Back in 2005...",
   scripts: [
