@@ -1,9 +1,6 @@
 var form = document.getElementById("todoForm")
 var input = document.getElementById("textBox")
 var todos = document.getElementById("todos")
-var xhr = getXHR();
-
-console.log(form, input, todos)
 
 function addEvent(el, event, callback) {
   if (el.addEventListener) {
@@ -20,20 +17,21 @@ addEvent(form, 'submit', function(event) {
     event.returnValue = false
   }
 
-  addTodo(input.value)
+  addTodo(input.value, false)
   input.value = ""
 })
 
 function addTodo(todoText, isDone) {
   var li = document.createElement('li')
   var text = document.createTextNode(todoText)
-  var classes = 'todo-item'
 
+  li.appendChild(text)
+  todos.appendChild(li)
+
+  var classes = 'todo-item'
   if (isDone) classes += ' todo-item-done'
 
   li.setAttribute('class', classes)
-  li.appendChild(text)
-  todos.appendChild(li)
 
   addEvent(li, 'click', toggleTodo)
 }
@@ -55,6 +53,8 @@ function toggleTodo(event) {
     li.setAttribute('class', 'todo-item todo-item-done')
   }
 }
+
+var xhr = getXHR();
 
 xhr.onreadystatechange = function() {
   // Not ready yet
@@ -86,11 +86,10 @@ function getXHR() {
          "Microsoft.XmlHttp"]
 
     for (var i = 0, len = versions.length; i < len; i++) {
-    try {
-      xhr = new ActiveXObject(versions[i]);
-      break;
-    }
-      catch(e){}
+      try {
+        xhr = new ActiveXObject(versions[i]);
+        break;
+      } catch(e){}
     }
   }
 

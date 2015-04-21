@@ -38,7 +38,7 @@ $(function() {
       , idx = -1
 
     todos.find('li').each(function(i, todo) {
-      if ($(todo).text() == $(li).text()) idx = i
+      if (todo == li) idx = i
     })
 
     $.ajax({

@@ -18,7 +18,7 @@
 
     componentDidMount: function() {
       this.collection = new Todos()
-      this.collection.on("add", function() {
+      this.collection.on("add remove", function() {
         this.setState({ models: this.collection.models })
       }.bind(this))
 
@@ -80,11 +80,11 @@
 
   var TodosInput = React.createClass({
     createTodo: function(event) {
-      var input = this.refs.todoInput.getDOMNode()
-      this.props.onNewTodo(input.value)
-      input.value = ""
-
       event.preventDefault()
+
+      var input = this.refs.todoInput.getDOMNode()
+      this.props.onCreate(input.value)
+      input.value = ""
     },
       
     render: function() {

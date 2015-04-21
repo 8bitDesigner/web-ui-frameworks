@@ -7,8 +7,8 @@ $(function() {
   })
 
   var Todos = Backbone.Collection.extend({
-    url: '/api/todos',
-    model: Todo
+    model: Todo,
+    url: '/api/todos'
   })
 
   var TodoView = Backbone.View.extend({
@@ -22,6 +22,12 @@ $(function() {
       this.collection.fetch()
     },
 
+    appendTodo: function(model) {
+      var todoItem = new TodoItemView(model)
+      todoItem.render()
+      this.$todos.append(todoItem.el)
+    },
+
     events: {
       "submit form": "createTodo"
     },
@@ -29,12 +35,7 @@ $(function() {
     createTodo: function(event) {
       event.preventDefault()
       this.collection.create({ text: this.$textBox.val(), isDone: false })
-    },
-
-    appendTodo: function(model) {
-      var view = new TodoItemView(model)
-      view.render()
-      this.$todos.append(view.el)
+      this.$textBox.val('')
     }
   })
 
@@ -59,7 +60,6 @@ $(function() {
     render: function() {
       this.$el.toggleClass('todo-item-done', this.model.get('isDone'))
       this.$el.text(this.model.get('text'))
-      return this
     }
   })
 
