@@ -1,5 +1,6 @@
 {
   "name": "web-ui-frameworks",
+  "description": "A comparison of common JS frameworks. Through a ToDo app, of course.",
   "version": "0.0.0",
   "private": true,
   "scripts": {
