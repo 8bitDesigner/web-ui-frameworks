@@ -17,12 +17,12 @@ router.get('/todos', function(req, res) {
 
 router.post('/todos', function(req, res) {
   todos.push(req.body)
-  res.send(todos.map(withId))
+  res.send(todos.map(withId)[todos.length - 1])
 })
 
 router.put('/todos/:id', function(req, res) {
   todos[req.params.id] = req.body
-  res.send(todos.map(withId))
+  res.send(todos.map(withId)[req.params.id])
 })
 
 router.delete('/todos/:id', function(req, res) {

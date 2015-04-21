@@ -17,8 +17,8 @@ $(function() {
       contentType: "application/json",
       dataType: "json",
       data: JSON.stringify({text: text, isDone: false}),
-      success: function(items) {
-        appendTodo(items[items.length -1])
+      success: function(item) {
+        appendTodo(item)
       }
     })
   }
