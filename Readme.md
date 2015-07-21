@@ -1,6 +1,7 @@
 # What's this!?
 
-This is the exact same ToDo list app rewritten in:
+I recently gave an internal presentation at Fullscreen about the evolution of web UI frameworks, through the lense of, what else, the humble ToDo app. There were no slides, just a discussion of code and abstraction, and this repo contains all the example apps I used in the talk:
+
 * Plain ol, 2005 era Javascript
 * jQuery
 * BackboneJS
